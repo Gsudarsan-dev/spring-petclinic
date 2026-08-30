@@ -20,6 +20,8 @@ phases:
     commands:
       - echo "Build completed successfully."
 
-artifacts:
-  files:
-    - target/*.jar
+  artifacts:
+    files:
+      - target/*.jar
+      - appspec.yml
+      - deploy/**/*

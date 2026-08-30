@@ -1,0 +1,28 @@
+version: 0.0
+os: linux
+
+files:
+  - source: target/spring-petclinic-4.0.0-SNAPSHOT.jar
+    destination: /opt/app/application/
+
+hooks:
+
+  ApplicationStop:
+    - location: deploy/scripts/application_stop.sh
+      timeout: 60
+      runas: root
+
+  AfterInstall:
+    - location: deploy/scripts/after_install.sh
+      timeout: 60
+      runas: root
+
+  ApplicationStart:
+    - location: deploy/scripts/application_start.sh
+      timeout: 60
+      runas: root
+
+  ValidateService:
+    - location: deploy/scripts/validate_service.sh
+      timeout: 60
+      runas: root

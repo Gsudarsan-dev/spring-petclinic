@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Checking Java version..."
+      - java -version
+
+  pre_build:
+    commands:
+      - echo "Checking Maven version..."
+      - ./mvnw -version
+
+  build:
+    commands:
+      - echo "Building Spring PetClinic..."
+      - ./mvnw clean package
+
+  post_build:
+    commands:
+      - echo "Build completed successfully."
+
+artifacts:
+  files:
+    - target/*.jar

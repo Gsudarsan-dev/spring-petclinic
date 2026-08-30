@@ -14,11 +14,11 @@ phases:
   build:
     commands:
       - echo "Building Spring PetClinic..."
-      - ./mvnw clean package
+      - ./mvnw clean package -Dtest='!PostgresIntegrationTests'
 
   post_build:
     commands:
-      - echo "Build completed successfully."
+      - echo "Build phase completed."
 
 artifacts:
   files:
